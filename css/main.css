@@ -1,28 +1,809 @@
-/* font-family: 'Noto Sans KR', sans-serif;  */
+/*	
+	사용폰트	
+	font-family: 'Noto Sans KR', sans-serif; 
+	색상
+	#ebf0f7
+*/
 
-a{font-family: 'Noto Sans KR', sans-serif;}
+/* 레이어 팝업 */
+article{display: block; width: 827px; height: 827px; background: url(../img/popup_bg.jpg) no-repeat center; padding: 20px; font-size: 30px; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); border: 5px solid #000; padding: 208px 150px 150px; z-index: 10000;}
 
+article p{font-family: 'Noto Sans KR', sans-serif; font-weight: 700; text-align: center; letter-spacing: -0.05em;}
+article p:nth-child(1){font-size: 16px; font-weight: 500; letter-spacing: 0.7em; margin-bottom: 17px;}
+article p:nth-child(2){font-size: 48px; margin-bottom: 10px;}
+article p:nth-child(3){font-size: 90px;}
+article p:nth-child(4){font-size: 14px; margin-top: 362px;}
+
+article .close_button{position: absolute; right: 10px; bottom: 10px; width: 49px; height: 49px; border-radius: 49px; background: #000; text-indent: -9999px; font-size: 0;}
+article .close_button:after{content: ""; display: block; clear: both; position: absolute; width: 4px; height: 30px; top: 10px; left: 23px; background: #fff; transform: rotate(45deg);}
+article .close_button:before{content: ""; display: block; clear: both; position: absolute; width: 4px; height: 30px; top: 10px; left: 23px; background: #fff; transform: rotate(-45deg);}
+
+/* 배경 */
 .container{height: 100%}
+.bg_img{background-color: rgba(235,240,247,1); background-repeat: no-repeat; background-position: bottom; background-size: 100%}
+.bg_1{background-image: url(../img/bg_01.png);}
+.bg_2{background-image: url(../img/bg_02.png);}
+.bg_3{background-image: url(../img/bg_03.png);}
+.container .inner{width: calc(100% - 120px);}
 
-.inner{height: 100vh; margin: 0 auto; display: flex; flex-direction: column; justify-content: space-around;}
-.section{position: absolute; width: 100%; display: flex; justify-content: space-evenly; flex-wrap: wrap;}
-.freitag_section{display: flex; flex-direction: column; justify-content: space-between; height: 274px;}
-.text{font-size: 18px; font-weight: 500; text-align: center; width: 250px; height: auto; margin: 0 auto;}
-.text a{display: inline-block; width: 100%; height: 100%; padding-right: 50px;}
-/* p:hover{background: #000; color: #fff;} */
 
-.text a{position: relative;}
-span{display: inline-block; height: 2px; background: #767676; text-indent: -9999px; font-size: 0; position: absolute;}
-.text:hover span{animation: arrow_ani 0.4s infinite alternate;}
+/* 페이지이동버튼 */
+/* 공통 */
+.fp-controlArrow{width: 127px; height: 67px; top: 20%;}
 
-span:first-child{transform: rotate(45deg); right: 20px; top: 7px; width: 10px;}
-span:last-child{right: 20px; top: 11px; width: 50px;}
+.page_controls{width: 126px; height: 67px; position: absolute; top: 8%; transform: translateY(100%); z-index: 9999;}
+.btn{height: 100%; background-repeat: no-repeat; background-position: center; display: inline-block;}
+.arrows{width: 63px; height: 100%; background-repeat: no-repeat; background-position: center; display: inline-block; position: absolute; top: 7px;}
+.page_controls.swiper-button-disabled{opacity: 0.2;}
+.page_controls.swiper-button-disabled .arrows{display: none;}
 
-@keyframes arrow_ani{
-	from {right: 35px;}
-	to {right: 20px;}
+/* 이전 버튼 */
+.fp-controlArrow.fp-prev{background-image: url(../img/acc_l.png); background-repeat: no-repeat; background-position: left; display: inline-block; left: 5%; border: 1px solid transparent; animation: left_ani 0.4s infinite alternate;}
+
+/* 다음 버튼 */
+.fp-controlArrow.fp-next{background-image: url(../img/bag_r.png); background-repeat: no-repeat; background-position: right; display: inline-block; right: 5%; border: 1px solid transparent; animation: right_ani 0.4s infinite alternate;}
+
+/* 애니메이션 */
+@keyframes left_ani{
+	from {left: 5%;}
+	to {left: 4%;}
+}
+@keyframes right_ani{
+	from {right: 5%;}
+	to {right: 4%;}
 }
 
-img{width: 60%; transition: 0.5s}
-.logo:hover img{transform: scale(120%)}
-.logo{text-align: center; line-height: 12; color: #767676;}
+/* 박스 스와이퍼 */
+.menu{height: 100vh; margin: 0 auto; display: flex; flex-direction: column; justify-content: space-around;}
+
+/* 서랍 FLEX */
+.drawer{position: absolute; width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap;}
+.drawer2{position: absolute; width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap;}
+.drawer3{position: absolute; width: 100%; max-width: 746px; display: flex; justify-content: space-between; flex-wrap: wrap; left: 50%; top: 50%; transform: translate(-50%, -50%);}
+
+.drawer > li{position: relative; width: 220px; z-index: 1; padding-bottom: 60px;}
+/* .drawer > li:last-child{margin-right: 0; z-index: 0;} */
+.drawer > li a{display: block;}
+
+.drawer2 > li{position: relative; width: 220px; z-index: 1; padding-bottom: 60px;}
+/* .drawer2 > li:last-child{margin-right: 0; z-index: 0;} */
+.drawer2 > li a{display: block;}
+
+.drawer3 > li{position: relative; width: 220px; z-index: 1; padding-bottom: 60px;}
+/* .drawer3 > li:last-child{margin-right: 0;} */
+.drawer3 > li a{display: block;}
+
+/* 서랍 호버 */
+.drawer > li span:not(.fbb){opacity: 0;}
+.drawer > li span.g_ani{opacity: 0;}
+.drawer2 > li span:not(.fbb){opacity: 0;}
+.drawer3 > li span:not(.fbb){opacity: 0;}
+.fb > h1:not(.fbb){opacity: 0;}
+
+.drawer > li:hover span:not(.fbb){opacity: 1;}
+.drawer > li:hover span.g_ani{opacity: 1;}
+.drawer2 > li:hover span:not(.fbb){opacity: 1;}
+.drawer3 > li:hover span:not(.fbb){opacity: 1;}
+.fb:hover > h1:not(.fbb){opacity: 1;}
+
+.drawer > li:hover .fbb{color: rgba(0,0,0,0);}
+.drawer2 > li:hover .fbb{color: rgba(0,0,0,0);}
+.drawer3 > li:hover .fbb{color: rgba(0,0,0,0);}
+
+.drawer > li:hover .fbf4{opacity:0 !important;}
+
+/* 서랍 순서 */
+.drawer_order > li:nth-child(1){z-index: 900;}
+.drawer_order > li:nth-child(2){z-index: 800;}
+.drawer_order > li:nth-child(3){z-index: 700;}
+.drawer_order > li:nth-child(4){z-index: 600;}
+.drawer_order > li:nth-child(5){z-index: 500;}
+.drawer_order > li:nth-child(6){z-index: 400;}
+.drawer_order > li:nth-child(7){z-index: 300;}
+.drawer_order > li:nth-child(8){z-index: 200;}
+.drawer_order > li:nth-child(9){z-index: 100;}
+
+
+/* 박스 공통 */
+.middle_logo{display: block;}
+
+.fbb{width: 100%; height: 86px; background: #fff; text-align: center; line-height: 77px; border: 5px solid rgba(0,0,0,1); font-family: 'Noto Sans KR', sans-serif; font-size: 40px; font-weight: 700; color: rgba(0,0,0,.3); display: inline-block; z-index: 0;}
+.fbb:before{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 10;}
+.fbb:after{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 5;}
+.fbl{width: 23px; height: 91px; background: #fff; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); position: absolute; left: -22px; top: 16px; transform: skew( 0, -55deg); z-index: 1; border-radius: 0 1px 0 8px;}
+.fbl:after{content: ""; display: block; clear: both; width: 20px; height: 14px; color: #000; position: absolute; z-index: 0;}
+.fbr{width: 26px; height: 91px; background: #fff; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); position: absolute; right: 1px; top: 13px; transform: skew( 0, -55deg); z-index: 1; border-radius: 0 8px 0 7px;}
+.fbr:after{content: ""; display: block; clear: both; width: 20px; height: 14px; color: #000; position: absolute; z-index: 5;}
+.fbf{width: 100%; height: 86px; background: #fff; text-align: center; line-height: 77px; border: 5px solid rgba(0,0,0,1); font-family: 'Noto Sans KR', sans-serif; font-size: 40px; font-weight: 700; color: #000; position: absolute; left: -22px; top: 32px; z-index: 15;}
+.fbf:before{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 25;}
+.fbf:after{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1);color: #000; position: absolute; z-index: 20;}
+
+/* 서랍 활성화버튼 */
+.button_able{color: #000;}
+
+/* 박스1 (어페럴) */
+.fbb1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -15deg, 0);}
+.fbb1:after{border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 96px; top: 81px; transform: skew( -55deg, 0);}
+.fbl1{width: 23px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); left: -22px; top: 16px; transform: skew( 0, -55deg); border-radius: 0 1px 0 8px; z-index: 0;} 
+.fbr1{width: 26px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: 0; top: 13px; transform: skew( 0, -55deg); border-radius: 0 8px 0 7px;}
+.fbf1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 80px; top: 76px; transform: skew( -15deg, 0);}
+.fbf1:after{border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 90px; top: 76px; transform: skew( -55deg, 0);}
+
+/* 박스2 (프라이탁?) */
+.fbf2{left: -15px;}
+.fbb2:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -6deg, 0);}
+.fbb2:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 94px; top: 81px; transform: skew( -46deg, 0);}
+.fbl2{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: -15px; top: 13px; transform: skew( 0, -66deg); border-radius: 0 9px 0 7px; z-index: -1;} 
+.fbr2{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1);border-right: 4px solid rgba(0,0,0,1); right: 1px; top: 13px; transform: skew(0, -66deg); border-radius: 0 9px 0 7px;}
+.fbf2:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 81px; top: 76px; transform: skew(-6deg, 0);}
+.fbf2:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 87px; top: 76px; transform: skew(-46deg, 0);}
+
+/* 박스3 (서비스)*/
+.fbf3{left: -9px;}
+.fbb3:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px; top: 81px; transform: skew(11deg, 0);}
+.fbb3:after{border-right: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 92px; top: 81px; transform: skew(-38deg, 0);}
+.fbl3{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1); left: -9px; top: 11px; transform: skew(0, -73deg); border-radius: 9px 45px 9px 45px; z-index: -1;} 
+.fbr3{width: 11px; height: 97px; border-top: 15px solid rgba(0,0,0,1); border-bottom: 13px solid rgba(0,0,0,1); right: 0; top: 10px; transform: skew(0, -73deg); border-radius: 9px 45px 9px 45px;}
+.fbf3:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 82px; top: 76px; transform: skew(11deg, 0);}
+.fbf3:after{border-right: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 86px; top: 76px;transform: skew(-38deg, 0);}
+
+/* 박스4 (센터1) */
+/* .fbb4:before{left: 90px; top: 81px; transform: skew(25deg, 0); background: rgba(0,0,0,1);} */
+.fbb4:before{display: none;}
+/* .fbb4:after{right: 90px; top: 81px; transform: skew(-25deg, 0); background: rgba(0,0,0,1);} */
+.fbb4:after{display: none;}
+.fbb4{left: 0px; background: rgba(0,0,0,1) url(../img/logo.jpg) no-repeat center; font-size: 0px; text-indent: -9999px;}
+.fbf4{left: 0px; background: rgba(0,0,0,1) url(../img/logo.jpg) no-repeat center; font-size: 0px; text-indent: -9999px;}
+.fbf4:before{left: 84px; top: 76px; transform: skew(25deg, 0); background: rgba(0,0,0,1);}
+.fbf4:after{right: 84px; top: 76px; transform: skew(-25deg, 0); background: rgba(0,0,0,1);}
+
+/* 박스4 (센터2) */
+.fbb4_2:before{left: 90px; top: 81px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+.fbb4_2:after{right: 90px; top: 81px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+.fbr4_2:after{display: none; transform: skew( 0, 90deg);}
+.fbr4_2{display: none; transform: skew( 0, 90deg);}
+.fbl4_2{display: none; transform: skew( 0, 90deg);}
+.fbf4_2{left: 1px;}
+.fbf4_2:before{left: 84px; top: 76px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+.fbf4_2:after{right: 84px; top: 76px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+
+/* 박스4 (센터3) */
+.fbb4_3:before{left: 90px; top: 81px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+.fbb4_3:after{right: 90px; top: 81px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+.fbf4_3{left: 0px;}
+.fbf4_3:before{left: 84px; top: 76px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+.fbf4_3:after{right: 84px; top: 76px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+
+/* 박스5 (고객센터) */
+.fbf5{left: 9px;}
+.fbb5:before{border-left: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 91px; top: 81px; transform: skew(38deg, 0);}
+.fbb5:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(-11deg, 0);}
+.fbl5{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0; top: 10px; transform: skew(0, 73deg); border-radius: 45px 9px 45px 9px;} 
+.fbr5{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1);	border-right: 0; right: -8px; top: 11px; transform: skew(0, 73deg); border-radius: 45px 9px 45px 9px; z-index: -1;}
+.fbf5:before{border-left: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 76px; transform: skew(38deg, 0);}
+.fbf5:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1);	position: absolute; right: 82px;	top: 76px; transform: skew(-11deg, 0);}
+
+/* 박스6 (컨텍트)*/
+.fbf6{left: 15px;}
+.fbb6:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 92px; top: 81px; transform: skew(46deg, 0);}
+.fbb6:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(6deg, 0);}
+.fbl6{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 1px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0;} 
+.fbr6{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: -14px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: -1;}
+.fbf6:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px;  top: 76px; transform: skew(46deg, 0);}
+.fbf6:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 84px; top: 76px; transform: skew(6deg, 0);}
+
+/* 박스7 (스토어) */
+.fbf7{left: 23px;}
+.fbb7:before{border-left: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 96px; top: 81px; transform: skew(55deg, 0);}
+.fbb7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 86px; top: 81px; transform: skew(15deg, 0);}
+.fbr7{width: 23px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); right: -22px; top: 16px; transform: skew( 0,55deg); border-radius: 1px 0 8px 0;} 
+.fbl7{width: 26px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 13px; transform: skew( 0, 55deg); border-radius: 8px 0 7px 0;}
+.fbf7:before{border-left: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 90px; top: 76px; transform: skew(55deg, 0);} 
+.fbf7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 80px; top: 76px; transform: skew(15deg, 0);}
+
+/* 악세서리 메뉴 박스 상하단 손잡이*/
+.fb_top:before{height: 12px; width: 21px;}
+.fb_top:after{height: 12px; width: 21px;}
+.fb_bottom:before{height: 16px; width: 21px;}
+.fb_bottom:after{height: 16px; width: 21px;}
+
+/* ㅡㅡㅡㅡ박스 호버시 이미지ㅡㅡㅡㅡ */
+
+/* 호버시 이미지 공통 */
+.image{background-repeat: no-repeat; background-position: center; background-size: 100%; width: 120px; height: 120px; position: absolute; z-index: 5;}
+
+/* 1페이지 */
+
+/* 박스1 (어페럴) */
+.bg_1 .gnb_1{background-image: url(../img/apparel.png); left: 45px; top: -115px;}
+/* 박스2 (프라이탁?) */
+.bg_1 .gnb_2{background-image: url(../img/freitag.png); left: 45px; top: -125px;}
+/* 박스3 (서비스) */
+.bg_1 .gnb_3{background-image: url(../img/service.png); left: 50px; top: -120px;}
+/* 박스5 (고객센터) */
+.bg_1 .gnb_5{background-image: url(../img/customer.png); left: 50px; top: -120px;}
+/* 박스6 (컨텍트) */
+.bg_1 .gnb_6{background-image: url(../img/contact.png); left: 50px; top: -128px;}
+/* 박스7 (스토어) */
+.bg_1 .gnb_7{background-image: url(../img/store.png); left: 60px; top: -130px;}
+
+.bg_1 .g_ani{animation: gnb_ani 1s infinite alternate;}
+
+@keyframes gnb_ani{
+	from {top: -55px;}
+	to {top: -125px;}	
+}
+
+/* 하위메뉴 */
+.sub_menu{border: 5px solid #000; width: 100%; height: auto; font-size: 25px; font-weight: 700; font-family: 'Noto Sans KR', sans-serif; text-align: center; background: #fff; color: #000; position: absolute; top: 101%; z-index: 20;}
+.sub_menu li{padding: 6px 0; border-bottom: 3px solid #000; line-height: 2; height: 65px;}
+.sub_menu li:hover{background: #000;}
+.sub_menu li:last-child{border-bottom: 0px;}
+.sub_menu li a{color: #000; display: inline-block;}
+.sub_menu li:hover a{width: 100%; color: #fff; display: inline-block;}
+
+.sub_1{left: -10%;}
+.sub_2_flex{left: 10%; display: none;}
+
+.sub_2_l{left: -57%;}
+.sub_2_r{right: -47%;}
+
+.sub_3_l{left: -57%;}
+.sub_3_r{right: -47%;}
+
+.sub_5{left: 4%;}
+.sub_6{left: 7%;}
+.sub_6_l_flex{display: none; left: -51%;}
+.sub_6_r_flex{display: none; right: -51%;}
+
+
+/* 2페이지 */
+
+/* 박스1 (숄더) */
+.bg_2 .bag_1{background-image: url(../img/bag_menu/shoulder.png); width: 234px; height: 207px; left: -10px; top: -114px;}
+/* 박스2 (토드) */
+.bg_2 .bag_2{background-image: url(../img/bag_menu/tote.png); width: 265px; height: 278px; left: -51px; top: -173px;}
+/* 박스3 (메신저) */
+.bg_2 .bag_3{background-image: url(../img/bag_menu/massenger.png); width: 256px; height: 251px; left: -29px; top: -136px;}
+/* 박스4 (콜라보) */
+.bg_2 .bag_4{background-image: url(../img/bag_menu/collabo.png); width: 189px; height: 259px; left: 22px; top: -152px;}
+/* 박스5 (백팩) */
+.bg_2 .bag_5{background-image: url(../img/bag_menu/backpack.png); width: 291px; height: 312px; left: -36px; top: -198px;}
+/* 박스6 (스포츠) */
+.bg_2 .bag_6{background-image: url(../img/bag_menu/travel.png); width: 275px; height: 466px; left: -29px; top: -351px;}
+/* 박스7 (랩탑) */
+.bg_2 .bag_7{background-image: url(../img/bag_menu/labtop.png); width: 250px; height: 225px; left: 3px; top: -109px;}
+
+
+/* 3페이지 */
+
+/* 박스1 (슬리브) */
+.bg_3 .acc_1{background-image: url(../img/acc_menu/sleeve.png); width: 283px; height: 243px; left: -36px; top: -143px;}
+/* 박스2 (노트) */
+.bg_3 .acc_2{background-image: url(../img/acc_menu/note.png); width: 174px; height: 213px; left: 24px; top: -97px;}
+/* 박스3 (토일렛) */
+.bg_3 .acc_3{background-image: url(../img/acc_menu/toilet.png); width: 268px; height: 171px; left: -19px; top: -54px;}
+
+/* 박스3 (지갑) */
+.bg_3 .acc_4{background-image: url(../img/acc_menu/wallet.png); width: 265px; height: 171px; left: -24px; top: -67px;}
+/* 박스4 (파우치) */
+.bg_3 .acc_5{background-image: url(../img/acc_menu/pouch.png); width: 206px; height: 147px; left: 8px; top: -40px;}
+/* 박스5 (숄더패드) */
+.bg_3 .acc_6{background-image: url(../img/acc_menu/shoulderpad.png); width: 257px; height: 147px; left: -20px; top: -45px;}
+
+/* 박스6 (키홀더) */
+.bg_3 .acc_7{background-image: url(../img/acc_menu/keyholder.png); width: 246px; height: 141px; left: -23px; top: -41px;}
+/* 박스7 (케이스) */
+.bg_3 .acc_8{background-image: url(../img/acc_menu/case.png); width: 251px; height: 147px; left: -18px; top: -39px;}
+/* 박스8 (바우처) */
+.bg_3 .acc_9{background-image: url(../img/acc_menu/boucher.png); width: 250px; height: 177px; left: -5px; top: -59px;}
+
+
+/* 2페이지 서랍 반응형 */
+@media screen and (max-width : 1800px){
+	.drawer2{justify-content: center; max-width: 1013px; left: 50%; transform: translateX(-50%);}
+	.drawer2 > li{margin-right: 43px; margin-bottom: 80px;}
+	.drawer2 > li:nth-child(4), .drawer > li:nth-child(7){margin-right: 0px;}
+	
+	/* 서랍 순서 */
+	.drawer2 > li:nth-child(1){z-index: 100;}
+	.drawer2 > li:nth-child(5){z-index: 200;}
+	
+	/* 가방서랍 (손잡이만 변경)*/
+	/* 박스 공통 */
+	.drawer2 .fbb{width: 220px; height: 86px; background: #fff; text-align: center; line-height: 77px; border: 5px solid rgba(0,0,0,1); font-size: 40px; font-weight: 700; color: #000; display: inline-block; z-index: 0;}
+	.drawer2 .fbb:before{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 10;}
+	.drawer2 .fbb:after{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 5;}
+	.drawer2 .fbl{width: 23px; height: 91px; background: #fff; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); position: absolute; left: -23px; top: 16px; transform: skew( 0, -55deg); z-index: 1; border-radius: 0 1px 0 8px;}
+	.drawer2 .fbl:after{content: ""; display: block; clear: both; width: 20px; height: 14px; color: #000; position: absolute; z-index: 0;}
+	.drawer2 .fbr{width: 26px; height: 91px; background: #fff; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); position: absolute; right: 1px; top: 13px; transform: skew( 0, -55deg); z-index: 1; border-radius: 0 8px 0 7px;}
+	.drawer2 .fbr:after{content: ""; display: block; clear: both; width: 20px; height: 14px; color: #000; position: absolute; z-index: 5;}
+	.drawer2 .fbf{width: 220px; height: 86px; background: #fff; text-align: center; line-height: 77px; border: 5px solid rgba(0,0,0,1); font-family: 'Noto Sans KR', sans-serif; font-size: 40px; font-weight: 700; color: #000; position: absolute; left: -23px; top: 32px; z-index: 15;}
+	.drawer2 .fbf:before{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); color: #000; position: absolute; z-index: 25;}
+	.drawer2 .fbf:after{content: ""; display: block; clear: both; width: 20px; height: 14px; background: #fff; border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1);color: #000; position: absolute; z-index: 20;}
+
+	/* 박스1 (숄더) */
+	.drawer2 .fbb1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -15deg, 0);}
+	.drawer2 .fbb1:after{border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 96px; top: 81px; transform: skew( -55deg, 0);}
+	.drawer2 .fbl1{width: 23px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); left: -23px; top: 16px; transform: skew( 0, -55deg); border-radius: 0 1px 0 8px; z-index: 0;} 
+	.drawer2 .fbr1{width: 26px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: 1px; top: 13px; transform: skew( 0, -55deg); border-radius: 0 8px 0 7px;}
+	.drawer2 .fbf1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 80px; top: 76px; transform: skew( -15deg, 0);}
+	.drawer2 .fbf1:after{border-right: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 90px; top: 76px; transform: skew( -55deg, 0);}
+
+	/* 박스2 (백팩) */
+	.drawer2 .fbf5{left: -15px;}
+	.drawer2 .fbb5:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -6deg, 0);}
+	.drawer2 .fbb5:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 94px; top: 81px; transform: skew( -46deg, 0);}
+	.drawer2 .fbl5{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: -15px; top: 13px; transform: skew( 0, -66deg); border-radius: 0 9px 0 7px; z-index: -1;} 
+	.drawer2 .fbr5{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1);border-right: 4px solid rgba(0,0,0,1); right: 1px; top: 13px; transform: skew(0, -66deg); border-radius: 0 9px 0 7px;}
+	.drawer2 .fbf5:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 81px; top: 76px; transform: skew(-6deg, 0);}
+	.drawer2 .fbf5:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 87px; top: 76px; transform: skew(-46deg, 0);}
+
+	/* 박스3 (토드)*/
+	.drawer2 .fbf2{left: -9px;}
+	.drawer2 .fbb2:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px; top: 81px; transform: skew(11deg, 0);}
+	.drawer2 .fbb2:after{border-right: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 92px; top: 81px; transform: skew(-38deg, 0);}
+	.drawer2 .fbl2{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1); left: -9px; top: 11px; transform: skew(0, -73deg); border-radius: 9px 45px 9px 45px; z-index: -1;} 
+	.drawer2 .fbr2{width: 11px; height: 97px; border-top: 15px solid rgba(0,0,0,1); border-bottom: 13px solid rgba(0,0,0,1); right: 1px; top: 10px; transform: skew(0, -73deg); border-radius: 9px 45px 9px 45px;}
+	.drawer2 .fbf2:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 82px; top: 76px; transform: skew(11deg, 0);}
+	.drawer2 .fbf2:after{border-right: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 86px; top: 76px; transform: skew(-38deg, 0);}
+
+	/* 박스4 (스포츠) */
+	.drawer2 .fbb6:before{left: 90px; top: 81px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer2 .fbb6:after{right: 90px; top: 81px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+	.drawer2 .fbr6:after{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbr6{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbl6{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbf6{left: 0px;}
+	.drawer2 .fbf6:before{left: 84px; top: 76px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer2 .fbf6:after{right: 84px; top: 76px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+
+	/* 박스5 (메신저) */
+	.drawer2 .fbf3{left: 9px;}
+	.drawer2 .fbb3:before{border-left: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 91px; top: 81px; transform: skew(38deg, 0);}
+	.drawer2 .fbb3:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(-11deg, 0);}
+	.drawer2 .fbl3{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 10px; transform: skew(0, 73deg); border-radius: 45px 9px 45px 9px;} 
+	.drawer2 .fbr3{width: 11px; height: 97px; border-top: 17px solid rgba(0,0,0,1); border-bottom: 15px solid rgba(0,0,0,1); border-right: 0; right: -8px; top: 11px; transform: skew(0, 73deg); border-radius: 45px 9px 45px 9px; z-index: -1;}
+	.drawer2 .fbf3:before{border-left: 6px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 76px; transform: skew(38deg, 0);}
+	.drawer2 .fbf3:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 82px;	top: 76px; transform: skew(-11deg, 0);}
+
+	/* 박스6 (랩탑)*/
+	.drawer2 .fbf7{left: 15px;}
+	.drawer2 .fbb7:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 92px; top: 81px; transform: skew(46deg, 0);}
+	.drawer2 .fbb7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(6deg, 0);}
+	.drawer2 .fbl7{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0;} 
+	.drawer2 .fbr7{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: -14px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: -1;}
+	.drawer2 .fbf7:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px;  top: 76px; transform: skew(46deg, 0);}
+	.drawer2 .fbf7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 84px; top: 76px; transform: skew(6deg, 0);}
+	
+	/* 박스7 (콜라보) */	
+	.drawer2 .fbf4_2{left: 23px;}
+	.drawer2 .fbb4_2:before{border-left: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 96px; top: 81px; transform: skew(55deg, 0);}
+	.drawer2 .fbb4_2:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 86px; top: 81px; transform: skew(15deg, 0);}
+	.drawer2 .fbr4_2{display: block; width: 23px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); right: -22px; top: 16px; transform: skew( 0,55deg); border-radius: 1px 0 8px 0;} 
+	.drawer2 .fbl4_2{display: block; width: 26px; height: 91px; border-top: 9px solid rgba(0,0,0,1); border-bottom: 8px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 13px; transform: skew( 0, 55deg); border-radius: 8px 0 7px 0;}
+	.drawer2 .fbf4_2:before{border-left: 8px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 90px; top: 76px; transform: skew(55deg, 0);} 
+	.drawer2 .fbf4_2:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 80px; top: 76px; transform: skew(15deg, 0);}
+	
+	/* 2페이지 */
+	/* 박스1 (숄더) */
+	.bg_2 .bag_1{width: 234px; height: 207px; left: -10px; top: -114px;}
+	/* 박스2 (토드) */
+	.bg_2 .bag_2{background-image: url(../img/bag_menu/tote_flex.png); width: 266px; height: 253px; left: -30px; top: -123px;}
+	/* 박스3 (메신저) */
+	.bg_2 .bag_3{width: 256px; height: 251px; left: -12px; top: -136px;}
+	/* 박스4 (콜라보) */
+	.bg_2 .bag_4{background-image: url(../img/bag_menu/collabo_flex.png); width: 283px; height: 245px; left: -6px; top: -134px;}
+	/* 박스5 (백팩) */
+	.bg_2 .bag_5{background-image: url(../img/bag_menu/backpack_flex.png); width: 283px; height: 245px; left: -41px; top: -136px;}
+	/* 박스6 (스포츠) */
+	.bg_2 .bag_6{background-image: url(../img/bag_menu/travel_flex.png); width: 275px; height: 233px; left: -43px; top: -120px;}
+	/* 박스7 (랩탑) */
+	.bg_2 .bag_7{width: 250px; height: 225px; left: -6px; top: -109px;}
+}
+
+
+/* 큰 태블릿 또는 작은 노트북 */
+@media screen and (max-width : 1668px){
+	.middle_logo{display: none !important;}
+}
+
+
+/* 메인+악세서리 서랍 크기 반응형*/ 
+@media screen and (max-width : 1550px){
+	.drawer{max-width: 746px; left: 50%; top: 50%; transform: translate(-50%, -40%);}
+	.drawer > li{margin-bottom: 85px;}
+	
+	/* 박스손잡이 변경 */
+	/* 박스1 (어페럴) */
+	.drawer .fbf1{left: -15px;}
+	.drawer .fbb1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -6deg, 0);}
+	.drawer .fbb1:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 94px; top: 81px; transform: skew( -46deg, 0);}
+	.drawer .fbl1{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: -15px; top: 13px; transform: skew( 0, -66deg); border-radius: 0 9px 0 7px; z-index: -1;} 
+	.drawer .fbr1{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1);border-right: 4px solid rgba(0,0,0,1); right: 1px; top: 13px; transform: skew(0, -66deg); border-radius: 0 9px 0 7px;}
+	.drawer .fbf1:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 81px; top: 76px; transform: skew(-6deg, 0);}
+	.drawer .fbf1:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 87px; top: 76px; transform: skew(-46deg, 0);}
+	/* 박스2 (프라이탁?) */
+	.drawer .fbb2:before{left: 90px; top: 81px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer .fbb2:after{right: 90px; top: 81px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+	.drawer .fbr2:after{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbr2{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbl2{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbf2{left: 0px;}
+	.drawer .fbf2:before{left: 84px; top: 76px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer .fbf2:after{right: 84px; top: 76px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+	/* 박스3 (서비스)*/
+	.drawer .fbf3{left: 15px;}
+	.drawer .fbb3:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 92px; top: 81px; transform: skew(46deg, 0);}
+	.drawer .fbb3:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(6deg, 0);}
+	.drawer .fbl3{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: 0;} 
+	.drawer .fbr3{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: -14px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: -1;}
+	.drawer .fbf3:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px;  top: 76px; transform: skew(46deg, 0);}
+	.drawer .fbf3:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 84px; top: 76px; transform: skew(6deg, 0);}
+	/* 박스5 (고객센터) */
+	.drawer .fbf5{left: -15px;}
+	.drawer .fbb5:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 86px; top: 81px; transform: skew( -6deg, 0);}
+	.drawer .fbb5:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 94px; top: 81px; transform: skew( -46deg, 0);}
+	.drawer .fbl5{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: -15px; top: 13px; transform: skew( 0, -66deg); border-radius: 0 9px 0 7px; z-index: -1;} 
+	.drawer .fbr5{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1);border-right: 4px solid rgba(0,0,0,1); right: 1px; top: 13px; transform: skew(0, -66deg); border-radius: 0 9px 0 7px; z-index: 0;}
+	.drawer .fbf5:before{border-left: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 81px; top: 76px; transform: skew(-6deg, 0);}
+	.drawer .fbf5:after{border-right: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 87px; top: 76px; transform: skew(-46deg, 0);}
+	/* 박스6 (컨텍트)*/
+	.drawer .fbb6:before{left: 90px; top: 81px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer .fbb6:after{right: 90px; top: 81px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+	.drawer .fbr6:after{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbr6{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbl6{display: none; transform: skew( 0, 90deg);}
+	.drawer .fbf6{left: 0px;}
+	.drawer .fbf6:before{left: 84px; top: 76px; transform: skew(25deg, 0); border-left: 6px solid rgba(0,0,0,1);}
+	.drawer .fbf6:after{right: 84px; top: 76px; transform: skew(-25deg, 0); border-right: 6px solid rgba(0,0,0,1);}
+	/* 박스7 (스토어) */
+	.drawer .fbf7{left: 15px;}
+	.drawer .fbb7:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 92px; top: 81px; transform: skew(46deg, 0);}
+	.drawer .fbb7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); right: 88px; top: 81px; transform: skew(6deg, 0);}
+	.drawer .fbl7{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-left: 4px solid rgba(0,0,0,1); left: 0px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: 0;} 
+	.drawer .fbr7{width: 17px; height: 92px; border-top: 12px solid rgba(0,0,0,1); border-bottom: 11px solid rgba(0,0,0,1); border-right: 4px solid rgba(0,0,0,1); right: -14px; top: 13px; transform: skew(0, 66deg); border-radius: 9px 0 7px 0; z-index: -1;}
+	.drawer .fbf7:before{border-left: 7px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); left: 87px;  top: 76px; transform: skew(46deg, 0);}
+	.drawer .fbf7:after{border-right: 5px solid rgba(0,0,0,1); border-bottom: 5px solid rgba(0,0,0,1); position: absolute; right: 84px; top: 76px; transform: skew(6deg, 0);}
+		
+	/* 하위메뉴 */
+	.sub_menu{background-color: #f9fafd;}		
+	.sub_1{left: -7%;}
+	.sub_2_flex{left: 10%;}
+	.sub_2_l {left: -51%;}
+	.sub_2_r {right: -51%; z-index: 10;}
+	.sub_3_l{left: -46%;}
+	.sub_3_r{right: -56%; }
+	.sub_5{left: -7%;}
+	.sub_6{display: none;}
+	.sub_6_l_flex, .sub_6_r_flex{display: block;}
+	.sub_7{left: 10%; height: 66px;}
+}
+
+
+/* 가방 서랍 max-width 줄임*/
+@media screen and (max-width : 1250px){
+	.section > .inner {width: calc(100% - 90px) !important;}/*section .inner 혹시 몰라 남긴다*/
+	
+	.drawer2{max-width: 1130px;}
+	.drawer2 > li{margin-right: 0.8vw;}
+}
+
+
+/* 서랍 크기 고정형*/ 
+@media screen and (max-width : 1000px){
+	/* 팝업제거 */
+	article{display: none;}
+	
+	/* 박스 배치 */	
+	.drawer{max-width: 48vw; left: 50%; top: 50%; transform: translate(-50%, -45%);}	
+	.drawer > li{position: relative; width: 22vw; z-index: 1; padding-bottom: 6vw; margin-bottom: 8vw;}
+	
+	.drawer2{width: 500px; max-width: 485px; top: 50%; transform: translate(-50%, -45%);}
+	.drawer2 > li{width: 22vw; margin-right: 4.3vw/*43px*/; padding-bottom: 6vw; margin-bottom: 8vw;}
+	.drawer2 > li:nth-child(2), .drawer2 > li:nth-child(4), .drawer2 > li:nth-child(6), .drawer2 > li:nth-child(7){margin-right: 0px;}
+	
+	.drawer3{width: 74.6vw;}
+	.drawer3 > li{width: 22vw;}
+	
+	/* 손잡이 및 반응형 */
+	.drawer .fbb{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; z-index: 0;}
+	.drawer .fbb:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 10;}
+	.drawer .fbb:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1);}
+	.drawer .fbl{width: 2.3vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); left: -2.3vw; top: 1.6vw; z-index: 1; border-radius: 0 0.1vw 0 0.8vw;}
+	.drawer .fbl:after{width: 2vw; height: 1.4vw; z-index: 0;}
+	.drawer .fbr{width: 2.6vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); border-right: 0.4vw solid rgba(0,0,0,1); right: 0; top: 1.3vw; z-index: 1; border-radius: 0 0.8vw 0 0.7vw;}
+	.drawer .fbr:after{width: 2vw; height: 1.4vw; color: #000; z-index: 5;}
+	.drawer .fbf{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; left: -2.3vw; top: 3.2vw; z-index: 15;}
+	.drawer .fbf:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 25;}
+	.drawer .fbf:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 20;}
+	/* 박스1 (어페럴) 좌 */	
+	.drawer .fbf1{left: -1.5vw;}
+	.drawer .fbb1:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer .fbb1:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer .fbl1{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;}
+	.drawer .fbr1{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: 0; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw;}
+	.drawer .fbf1:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer .fbf1:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}	
+	/* 박스2 (프라이탁?) 우 */
+	.drawer .fbf2{left: 1.5vw;}
+	.drawer .fbb2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer .fbb2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer .fbl2{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 0;}
+	.drawer .fbr2{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer .fbf2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer .fbf2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	/* 박스3 (서비스) 좌 */
+	.drawer .fbf3{left: -1.5vw;}
+	.drawer .fbb3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer .fbb3:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer .fbl3{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;} 
+	.drawer .fbr3{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: 0; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw;}
+	.drawer .fbf3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer .fbf3:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}
+	/* 박스5 (고객센터) 우 */
+	.drawer .fbf5{left: 1.5vw;}
+	.drawer .fbb5:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer .fbb5:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer .fbl5{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 0;}
+	.drawer .fbr5{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer .fbf5:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer .fbf5:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	/* 박스6 (컨텍트) 좌 */
+	.drawer .fbf6{left: -1.5vw;}
+	.drawer .fbb6:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer .fbb6:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer .fbl6{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;} 
+	.drawer .fbr6{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: 0; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: 6;}
+	.drawer .fbf6:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer .fbf6:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}
+	/* 박스7 (스토어) 우*/
+	.drawer .fbf7{left: 1.5vw;}
+	.drawer .fbb7:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer .fbb7:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer .fbl7{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 5;}
+	.drawer .fbr7{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer .fbf7:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer .fbf7:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	
+	
+	/* 가방 서랍*/
+	.drawer2 .fbb{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; z-index: 0;}
+	.drawer2 .fbb:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 10;}
+	.drawer2 .fbb:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1);}
+	.drawer2 .fbl{width: 2.3vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); left: -2.3vw; top: 1.6vw; z-index: 1; border-radius: 0 0.1vw 0 0.8vw;}
+	.drawer2 .fbl:after{width: 2vw; height: 1.4vw; z-index: 0;}
+	.drawer2 .fbr{width: 2.6vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); border-right: 0.4vw solid rgba(0,0,0,1); right: 0.1vw; top: 1.3vw; z-index: 1; border-radius: 0 0.8vw 0 0.7vw;}
+	.drawer2 .fbr:after{width: 2vw; height: 1.4vw; color: #000; z-index: 5;}
+	.drawer2 .fbf{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; left: -2.3vw; top: 3.2vw; z-index: 15;}
+	.drawer2 .fbf:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 25;}
+	.drawer2 .fbf:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 20;}
+	/* 박스1 (숄더) 좌 */
+	.drawer2 .fbf1{left: -1.5vw;}
+	.drawer2 .fbb1:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer2 .fbb1:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer2 .fbl1{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;}
+	.drawer2 .fbr1{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: .1vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw;}
+	.drawer2 .fbf1:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer2 .fbf1:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}
+	/* 박스2 (토드) 우 */
+	.drawer2 .fbf2{left: 1.5vw;}
+	.drawer2 .fbb2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer2 .fbb2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer2 .fbl2{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 0;}
+	.drawer2 .fbr2{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer2 .fbf2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer2 .fbf2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	/* 박스3 (메신저) 좌 */
+	.drawer2 .fbf3{left: -1.5vw;}
+	.drawer2 .fbb3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer2 .fbb3:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer2 .fbl3{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;} 
+	.drawer2 .fbr3{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: .1vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw;}
+	.drawer2 .fbf3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer2 .fbf3:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}
+	/* 박스4 (콜라보) 우 */
+	.drawer2 .fbf4_2{left: 1.5vw;}
+	.drawer2 .fbb4_2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer2 .fbb4_2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer2 .fbl4_2{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 0;}
+	.drawer2 .fbr4_2{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer2 .fbf4_2:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer2 .fbf4_2:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	/* 박스5 (백팩) 좌 */
+	.drawer2 .fbf5{left: -1.5vw;}
+	.drawer2 .fbb5:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 8.1vw; transform: skew( -6deg, 0);}
+	.drawer2 .fbb5:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.4vw; top: 8.1vw; transform: skew( -46deg, 0);}
+	.drawer2 .fbl5{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: -1.5vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: -1;} 
+	.drawer2 .fbr5{width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: .1vw; top: 1.3vw; transform: skew( 0, -66deg); border-radius: 0 .9vw 0 .7vw; z-index: 6;}
+	.drawer2 .fbf5:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.1vw; top: 7.6vw; transform: skew(-6deg, 0);}
+	.drawer2 .fbf5:after{border-right: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.7vw; top: 7.6vw; transform: skew(-46deg, 0);}
+	/* 박스6 (스포츠) 우 */
+	.drawer2 .fbf6{left: 1.5vw;}
+	.drawer2 .fbb6:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.2vw; top: 8.1vw; transform: skew(46deg, 0);}
+	.drawer2 .fbb6:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(6deg, 0);}
+	.drawer2 .fbl6{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: 5;}
+	.drawer2 .fbr6{display: block; width: 1.7vw; height: 9.2vw; border-top: 1.2vw solid rgba(0,0,0,1); border-bottom: 1.1vw solid rgba(0,0,0,1); border-right: .4vw solid rgba(0,0,0,1); right: -1.4vw; top: 1.3vw; transform: skew(0, 66deg); border-radius: .9vw 0 .7vw 0; z-index: -1;}
+	.drawer2 .fbf6:before{border-left: .7vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 7.6vw; transform: skew(46deg, 0);}
+	.drawer2 .fbf6:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.4vw; top: 7.6vw; transform: skew(6deg, 0);}
+	/* 박스7 (랩탑) */
+	.drawer2 .fbb7:before{left: 9vw; top: 8.1vw; transform: skew(25deg, 0); border-left: 0.6vw solid rgba(0,0,0,1);}
+	.drawer2 .fbb7:after{right: 9vw; top: 8.1vw; transform: skew(-25deg, 0); border-right: 0.6vw solid rgba(0,0,0,1);}
+	.drawer2 .fbr7:after{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbr7{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbl7{display: none; transform: skew( 0, 90deg);}
+	.drawer2 .fbf7{left: 0;}
+	.drawer2 .fbf7:before{left: 8.4vw; top: 7.6vw; transform: skew(25deg, 0); border-left: 0.6vw solid rgba(0,0,0,1);}
+	.drawer2 .fbf7:after{right: 8.4vw; top: 7.6vw; transform: skew(-25deg, 0); border-right: 0.6vw solid rgba(0,0,0,1);}
+	
+	/* 악세서리 메뉴 */
+	.drawer3 .fbb{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; z-index: 0;}
+	.drawer3 .fbb:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 10;}
+	.drawer3 .fbb:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1);}
+	.drawer3 .fbl{width: 2.3vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); left: -2.3vw; top: 1.6vw; z-index: 1; border-radius: 0 0.1vw 0 0.8vw;}
+	.drawer3 .fbl:after{width: 2vw; height: 1.4vw; z-index: 0;}
+	.drawer3 .fbr{width: 2.6vw; height: 9.1vw; border-top: 0.9vw solid rgba(0,0,0,1); border-bottom: 0.8vw solid rgba(0,0,0,1); border-right: 0.4vw solid rgba(0,0,0,1); right: 0.1vw; top: 1.3vw; z-index: 1; border-radius: 0 0.8vw 0 0.7vw;}
+	.drawer3 .fbr:after{width: 2vw; height: 1.4vw; color: #000; z-index: 5;}
+	.drawer3 .fbf{width: 100%; height: 8.6vw; line-height: 7.7vw; border: 0.5vw solid rgba(0,0,0,1); font-size: 4vw; left: -2.3vw; top: 3.2vw; z-index: 15;}
+	.drawer3 .fbf:before{width: 2vw; height: 1.4vw; border-left: 0.5vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 25;}
+	.drawer3 .fbf:after{width: 2vw; height: 1.4vw; border-right: 0.8vw solid rgba(0,0,0,1); border-bottom: 0.5vw solid rgba(0,0,0,1); z-index: 20;}
+	/* 박스3 (서비스)*/
+	.drawer3 .fbf3{left: -.9vw;}
+	.drawer3 .fbb3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.7vw; top: 8.1vw; transform: skew(11deg, 0);}
+	.drawer3 .fbb3:after{border-right: .6vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 9.2vw; top: 8.1vw; transform: skew(-38deg, 0);}
+	.drawer3 .fbl3{width: 1.1vw; height: 9.7vw; border-top: 1.7vw solid rgba(0,0,0,1); border-bottom: 1.5vw solid rgba(0,0,0,1); left: -.9vw; top: 1.1vw; transform: skew(0, -73deg); border-radius: .9vw 4.5vw .9vw 4.5vw; z-index: -1;} 
+	.drawer3 .fbr3{width: 1.1vw; height: 9.7vw; border-top: 1.5vw solid rgba(0,0,0,1); border-bottom: 1.3vw solid rgba(0,0,0,1); right: .1vw; top: 1vw; transform: skew(0, -73deg); border-radius: .9vw 4.5vw .9vw 4.5vw;}
+	.drawer3 .fbf3:before{border-left: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.2vw; top: 7.6vw; transform: skew(11deg, 0);}
+	.drawer3 .fbf3:after{border-right: .6vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); position: absolute; right: 8.6vw; top: 7.6vw; transform: skew(-38deg, 0);}
+	/* 박스4 (센터3) */
+	.drawer3 .fbb4_3:before{left: 9vw; top: 8.1vw; transform: skew(25deg, 0); border-left: .6vw solid rgba(0,0,0,1);}
+	.drawer3 .fbb4_3:after{right: 9vw; top: 8.1vw; transform: skew(-25deg, 0); border-right: .6vw solid rgba(0,0,0,1);}
+	.drawer3 .fbf4_3{left: 0px;}
+	.drawer3 .fbf4_3:before{left: 8.4vw; top: 7.6vw; transform: skew(25deg, 0); border-left: .6vw solid rgba(0,0,0,1);}
+	.drawer3 .fbf4_3:after{right: 8.4vw; top: 7.6vw; transform: skew(-25deg, 0); border-right: .6vw solid rgba(0,0,0,1);}
+	/* 박스5 (고객센터) */
+	.drawer3 .fbf5{left: .9vw;}
+	.drawer3 .fbb5:before{border-left: .6vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 9.1vw; top: 8.1vw; transform: skew(38deg, 0);}
+	.drawer3 .fbb5:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); right: 8.8vw; top: 8.1vw; transform: skew(-11deg, 0);}
+	.drawer3 .fbl5{width: 1.1vw; height: 9.7vw; border-top: 1.7vw solid rgba(0,0,0,1); border-bottom: 1.5vw solid rgba(0,0,0,1); border-left: .4vw solid rgba(0,0,0,1); left: 0px; top: 1vw; transform: skew(0, 73deg); border-radius: 4.5vw .9vw 4.5vw .9vw;} 
+	.drawer3 .fbr5{width: 1.1vw; height: 9.7vw; border-top: 1.7vw solid rgba(0,0,0,1); border-bottom: 1.5vw solid rgba(0,0,0,1); border-right: 0; right: -.8vw; top: 1.1vw; transform: skew(0, 73deg); border-radius: 4.5vw .9vw 4.5vw .9vw; z-index: -1;}
+	.drawer3 .fbf5:before{border-left: .6vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1); left: 8.6vw; top: 7.6vw; transform: skew(38deg, 0);}
+	.drawer3 .fbf5:after{border-right: .5vw solid rgba(0,0,0,1); border-bottom: .5vw solid rgba(0,0,0,1);	position: absolute; right: 8.2vw; top: 7.6vw; transform: skew(-11deg, 0);}
+	
+	
+	/* ㅡㅡㅡㅡ박스 호버시 이미지ㅡㅡㅡㅡ */
+	/* 호버시 이미지 공통 */
+	.image{background-repeat: no-repeat; background-position: center; background-size: 100%; width: 12vw; height: 12vw;}
+	/* 1페이지 */
+	/* 박스1 (어페럴) */
+	.bg_1 .gnb_1{background-image: url(../img/apparel.png); left: 4.5vw; top: -11.5vw;}
+	/* 박스2 (프라이탁?) */
+	.bg_1 .gnb_2{background-image: url(../img/freitag.png); left: 4.5vw; top: -12.5vw;}
+	/* 박스3 (서비스) */
+	.bg_1 .gnb_3{background-image: url(../img/service.png); left: 5vw; top: -12vw;}
+	/* 박스5 (고객센터) */
+	.bg_1 .gnb_5{background-image: url(../img/customer.png); left: 5vw; top: -12vw;}
+	/* 박스6 (컨텍트) */
+	.bg_1 .gnb_6{background-image: url(../img/contact.png); left: 5vw; top: -12.8vw;}
+	/* 박스7 (스토어) */
+	.bg_1 .gnb_7{background-image: url(../img/store.png); left: 6vw; top: -13vw;}
+
+	.bg_1 .g_ani{animation: gnb_ani 1s infinite alternate;}
+
+	@keyframes gnb_ani{
+		from {top: -5.5vw;}
+		to {top: -12.5vw;}	
+	}
+	
+	/* 하위메뉴 */
+	.sub_menu{border: .5vw solid #000; font-size: 2.5vw;background-color: #f9fafd;}
+	.sub_menu li{padding: .6vw 0; border-bottom: .3vw solid #000; height: 6.5vw;}
+	
+	.sub_1{left: -7%;}
+	.sub_2_flex{left: 10%; display: none;}
+	.sub_2_l {left: -41%;}
+	.sub_2_r {right: -61%; z-index: 10;}
+	.sub_3_l, .sub_6_l_flex{left: -56%;}
+	.sub_3_r, .sub_6_r_flex{right: -46%;}
+	.sub_5{left: 7%;}
+	.sub_6{display: none;}
+	.sub_6_l_flex, .sub_6_r_flex{display: block;}
+	.sub_7{left: 10%;}	
+	
+	
+	/* 2페이지 */
+	/* 박스1 (숄더) */
+	.bg_2 .bag_1{width: 23.4vw; height: 20.7vw; left: -0.8vw; top: -11.4vw;}
+	/* 박스2 (토드) */
+	.bg_2 .bag_2{width: 26.6vw; height: 25.3vw; left: -1.9vw; top: -13.1vw;}
+	/* 박스3 (메신저) */
+	.bg_2 .bag_3{width: 25.6vw; height: 25.1vw; left: -3.2vw; top: -13.6vw;}
+	/* 박스4 (콜라보) */
+	.bg_2 .bag_4{width: 28.3vw; height: 24.5vw; left: -1.4vw; top: -13.4vw;}
+	/* 박스5 (백팩) */
+	.bg_2 .bag_5{width: 27.2vw; height: 24.1vw; left: -3.1vw; top: -13.6vw;}
+	/* 박스6 (스포츠) */
+	.bg_2 .bag_6{width: 27.5vw; height: 23.3vw; left: -3.2vw; top: -12vw;}
+	/* 박스7 (랩탑) */
+	.bg_2 .bag_7{width: 25vw; height: 22.5vw; left: -1.6vw; top: -10.9vw;}
+	
+	/* 3페이지 */
+	/* 박스1 (슬리브) */
+	.bg_3 .acc_1{width: 28.3vw; height: 24.3vw; left: -3.6vw; top: -14.3vw;}
+	/* 박스2 (노트) */
+	.bg_3 .acc_2{width: 17.4vw; height: 21.3vw; left: 2.4vw; top: -9.7vw;}
+	/* 박스3 (토일렛) */
+	.bg_3 .acc_3{width: 26.8vw; height: 17.1vw; left: -1.9vw; top: -5.4vw;}
+
+	/* 박스3 (지갑) */
+	.bg_3 .acc_4{width: 26.5vw; height: 17.1vw; left: -2.4vw; top: -6.7vw;}
+	/* 박스4 (파우치) */
+	.bg_3 .acc_5{width: 20.6vw; height: 14.7vw; left: .8vw; top: -4vw;}
+	/* 박스5 (숄더패드) */
+	.bg_3 .acc_6{width: 25.7vw; height: 14.7vw; left: -2vw; top: -4.5vw;}
+
+	/* 박스6 (키홀더) */
+	.bg_3 .acc_7{width: 24.6vw; height: 14.1vw; left: -2.3vw; top: -4.1vw;}
+	/* 박스7 (케이스) */
+	.bg_3 .acc_8{width: 25.1vw; height: 14.7vw; left: -1.8vw; top: -3.9vw;}
+	/* 박스8 (바우처) */
+	.bg_3 .acc_9{width: 25vw; height: 17.7vw; left: -.5vw; top: -5.9vw;}
+}
+
+	
+/* 태블릿 또는 모바일(폴딩)*/ 
+@media screen and (max-width : 768px){
+	/* 배경 */
+	.bg_img{background-color: rgba(53,59,72,0.38) !important; background-repeat: no-repeat; background-position: center; background-size: 100vh;}
+	.bg_1{background-image: url(../img/tablet_bg_01_men.png), url(../img/tablet_bg_01_back.jpg); background-size: 77%, 100%; background-position: 6.129032258064516vw/*95px*/ 12.25806451612903/*190px*/, center;}
+	.bg_2{background-image: url(../img/tablet_bg_02_men.png), url(../img/tablet_bg_02_back.jpg); background-size: 100%, 100%; background-position: center;}
+	/* .bg_2{background-image: url(../img/tablet_bg_02.jpg);} */
+	.bg_3{background-image: url(../img/tablet_bg_03_men.png), url(../img/tablet_bg_02_back.jpg); background-size: 100%, 100%; background-position: center;}
+	/* .bg_3{background-image: url(../img/tablet_bg_03.jpg);} */
+	
+	/* 메인 서랍 손잡이*/
+	.drawer2{width: 380px;}
+	
+	/* 하위메뉴 */
+	.sub_2_l{display: none;}
+	.sub_2_r{display: none;}
+	.sub_3_l{left: -56%;}
+	.sub_3_r{right: -46%;}
+	.sub_5{left: 7%;}
+	.sub_6_l_flex{left: -56%;}
+	.sub_6_r_flex{right: -46%;}
+	.sub_2_flex{display: block; left: 7%;}
+	
+	/* 페이지이동버튼 */
+	.fp-controlArrow{background-size: 80%; width: 127px; height: 67px; top: auto; bottom: 30px;}
+}
+
+/* 태블릿 또는 모바일(폴딩)*/ 
+@media screen and (max-width : 540px){
+	.drawer2{width: 500px; max-width: 265px;}
+		
+	
+	/* 페이지이동버튼 */
+	/* 공통 */
+	.fp-controlArrow{width: 126px; height: 67px; }
+
+	.page_controls{width: 100%; height: 12.40740740740741vw;}
+	.arrows{width: 63px; height: 100%; top: 7px;}
+	
+	/* 이전 버튼 */
+	.fp-controlArrow.fp-prev {border: 1px solid transparent; animation: left_ani 0.4s infinite alternate;}
+	/* .fp-controlArrow.fp-prev:after{background-size: 63px; width: 100%;} */
+
+	/* 다음 버튼 */
+	.fp-controlArrow.fp-next {border: 1px solid transparent; animation: right_ani 0.4s infinite alternate;}
+	/* .fp-controlArrow.fp-next:after{background-size: 67px; width: 100%;} */
+}
+
+/* 모바일*/ 
+@media screen and (max-width : 375px){
+	.drawer2{max-width: 220px;}
+}
+
+
+
+

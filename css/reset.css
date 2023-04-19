@@ -48,13 +48,9 @@ table {
 	border-spacing: 0;
 }
 /*추가*/
-a{
-	color: #2e2e2e;
-	text-decoration: none;
-	
+a{text-decoration: none;	
 }
 
 img, video{
-	vertical-align: bottom;
-	
+	vertical-align: bottom;	
 }
