@@ -3,41 +3,675 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=1">
 		
-		<meta charset="utf-8" />
-		<title>프라이탁 & 유니클로</title>
+		<meta charset="utf-8">
+		<title>프라이탁 코리아</title>
+		
+		<!-- 로봇 검사엔진 설정 -->
+		<meta name="robots" content="index, follow">
+		<!-- <meta name="robots" content="All"> 이 문서를 수집가능, 링크된 문서도 수집가능 -->
+		<!--
+		<meta name="robots" content="index, nofollow"> 이 문서를 수집가능, 링크된 문서도 수집불가
+		<meta name="robots" content="noindex, follow"> 이 문서를 수집불가, 링크된 문서도 수집가능
+		<meta name="robots" content="noindex, nofollow"> 이 문서를 수집불가, 링크된 문서도 수집불가
+		-->
+		
+		<!-- 각종 사이트를 설명해주는 메타태그 -->
+		<meta name="subject" content="프라이탁 코리아 홈페이지">
+		<meta name="generator" content="vs code, notepad++">
+		<meta name="author" content="프라이탁">
+		<meta name="keywords" content="프라이탁 in 코리아 이벤트">
+		<meta name="description" content="프라이탁 리뉴얼 이벤트에 참여하세요!">
+		
+		<!-- 오픈그래프 -->
+		<meta property="og:type" content="웹사이트">
+		<meta property="og:type" content="프라이탁">
+		<meta property="og:description" content="프라이탁 한국에서의 새로운 시작!">
+		<meta property="og:image" content="http://freitag303.dothome.co.kr/freitag/img/og.jpg"><!-- 절대경로 필수 -->
+		
+		<!-- 파비콘 -->
+		<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+		<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+		
+		<!-- 자바스크립트 -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
+		<link rel="stylesheet" type="text/css" href="css/examples.css" />
 		
 		<!--리셋-->
 		<link rel="stylesheet" href="css/reset.css">
+		<!--공통-->
+		<link rel="stylesheet" href="css/common.css">
 		<!--메인-->
 		<link rel="stylesheet" href="css/main.css">
+		<!--서브-->
+		<link rel="stylesheet" href="css/sub.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+		
+		<!-- 코어 JS -->
+		<script src="js/jquery-3.3.1.min.js"></script>
+		
+		<!-- 풀페이지 -->
+		<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+		<script src="js/fullpage.js"></script>
+		
+		<!--노말스크롤추가-->
+		<script src="https://unpkg.com/fullpage.js/vendors/scrolloverflow.min.js"></script>
+		
+		<!-- 스와이퍼 JS -->
+		<script src="js/swiper.min.js"></script>
+		
+		<!-- 메인 JS-->		
+		<script src="js/main.js"></script>
+		
+		<!-- 사이드 메뉴 JS -->
+		<script src="js/side_menu.js"></script>
+		
+		<!-- 서브 -->
+		<script src="js/sub.js"></script>
 		
 		<!-- 노토산스 -->
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">	
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">		
 		
+		<!--[if IE]>
+			<script type="text/javascript">
+				 var console = { log: function() {} };
+			</script>
+		<![endif]-->		
+		
+		
+		
+
 	</head>
 	<body>
-		<header></header>
-		<div class="container">
-			<div class="inner">
-				<div class="section">
-					<div  class="freitag_section">
-						<a href="freitag/index.html" class="freitag logo">
-							<img src="img/freitag_logo.jpg" alt="프라이탁">
-						</a>
-						<p class="text">
-							<a href="doc.pdf">기획안 보러가기
-								<span>하향 화살표</span>
-								<span>하향 화살표</span>
-							</a>
-						</p>						
+		<header>			
+			<div class="inner">				
+				<ul class="top_menu clear">
+					<li class="top_menu_l top_logo"><a href="#firstPage"><h1>탑로고</h1></a></li>
+					<li class="top_menu_l language"><a href="#" >나라</a></li>
+					<li class="top_menu_r hambuger"><a href="#">메뉴</a>
+						<ul class="side_menu">
+							<li>
+								<a href="#">어페럴
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li class="active_able"><a href="#secondPage">F-소재란?</a></li>
+									<li><a href="#">남성의류</a></li>
+									<li><a href="#">여성의류</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">프라이탁?
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li class="active_able"><a href="#3rdPage">역사</a></li>
+									<li><a href="#">생산</a></li>
+									<li><a href="#">소재</a></li>
+									<li><a href="#">뉴스</a></li>
+									<li><a href="#">미디어</a></li>
+									<li><a href="#">채용</a></li>
+									<li><a href="#">새소식</a></li>
+								</ul>	
+							</li>
+							<li>
+								<a href="#">서비스
+									<span>화살표</span>
+									<span>화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li class="active_able"><a href="#4thpage">A/S</a></li>
+									<li><a href="#">F-멤버십 가입</a></li>
+									<li><a href="#">공장 방문</a></li>
+									<li><a href="#">제품 등록</a></li>
+									<li><a href="#">S.W.A.P</a></li>
+									<li><a href="#">바이크 렌트</a></li>
+									<li><a href="#">시티 가이드라인</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">고객센터
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li><a href="#5thpage">제품 &amp; 소재</a></li>
+									<li><a href="#">쇼핑 &amp; 배송</a></li>
+									<li><a href="#">주문 &amp; 결제</a></li>
+									<li><a href="#">교환 &amp; 환불</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">컨텍트
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li><a href="#">고객지원</a></li>
+									<li><a href="#">리셉션</a></li>
+									<li><a href="#">언론</a></li>
+									<li><a href="#">마케팅</a></li>
+									<li><a href="#">가맹·대리·체인</a></li>
+									<li><a href="#">방수포 조달</a></li>
+								</ul>
+							</li>
+							<li><a href="#">스토어</a></li>
+							<li>
+								<a href="#">가방
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li><a href="#">숄더</a></li>
+									<li><a href="#">토드</a></li>
+									<li class="active_able"><a href="bag_1.html">메신저</a></li>
+									<li><a href="#">콜라보</a></li>
+									<li><a href="#">백팩</a></li>
+									<li><a href="#">스포츠</a></li>
+									<li><a href="#">랩탑</a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#">악세서리
+									<span>하향 화살표</span>
+									<span>하향 화살표</span>
+								</a>
+								<ul class="side_sub_menu">
+									<li class="active_able"><a href="acc_1.html">슬리브</a></li>
+									<li><a href="#">노트</a></li>
+									<li><a href="#">세면백</a></li>
+									<li><a href="#">지갑</a></li>
+									<li><a href="#">파우치</a></li>
+									<li><a href="#">숄더패드</a></li>
+									<li><a href="#">키홀더</a></li>
+									<li><a href="#">케이스</a></li>
+									<li><a href="#">바우처</a></li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="top_menu_r cart"><a href="#" >카트</a></li>
+					<li class="top_menu_r user_profile"><a href="join_1.html">사람</a></li>
+				</ul>
+			</div>
+		</header>
+		
+		<ul id="menu">
+			<li data-menuanchor="secondPage"><a href="#secondPage">어페럴</a></li>
+			<li data-menuanchor="3rdPage"><a href="#3rdPage">프라이탁?</a></li>
+			<li data-menuanchor="4thpage"><a href="#4thpage">서비스</a></li>
+			<li data-menuanchor="firstPage" class="active"><a href="#firstPage">홈</a></li>
+			<li data-menuanchor="5thPage"><a href="#5thPage">고객센터</a></li>
+			<li data-menuanchor="6thPage"><a href="#6thPage">컨텍트</a></li>
+			<li data-menuanchor="lastPage"><a href="#lastPage">스토어</a></li>
+		</ul>
+		
+		<div id="fullpage" class="container">
+			<div class="section active bg_img" id="section0">
+				<div class="slide active bg_img bg_1" id="slide1">
+					<div class="inner">
+						<div class="menu">
+							<ul class="drawer drawer_order">
+								<li data-menuanchor="secondPage">
+									<a href="#" class="fb fb1">
+										<span class="fbb fbb1 button_able">어페럴</span>
+										<span class="fbr fbr1"></span>
+										<span class="fbl fbl1"></span>
+										<span class="image gnb_1 g_ani"></span>
+										<span class="fbf fbf1 button_able">어페럴</span>	
+									</a>
+									<ul class="sub_menu sub_1">
+										<li><a href="#secondPage">F-소재란?</a></li>
+										<li><a href="#">남성의류</a></li>
+										<li><a href="#">여성의류</a></li>
+									</ul>
+								</li>
+								<li data-menuanchor="3rdPage">
+									<a href="#" class="fb fb2">
+										<span class="fbb fbb2 button_able">프라이탁?</span>
+										<span class="fbr fbr2"></span>
+										<span class="fbl fbl2"></span>
+										<span class="image gnb_2 g_ani"></span>
+										<span class="fbf fbf2 button_able">프라이탁?</span>
+									</a>
+									<ul class="sub_menu sub_2_l">
+										<li><a href="#3rdPage">역사</a></li>
+										<li><a href="#">생산</a></li>
+										<li><a href="#">소재</a></li>
+										<li><a href="#">뉴스</a></li>
+									</ul>
+									<ul class="sub_menu sub_2_r">
+										<li><a href="#">미디어</a></li>
+										<li><a href="#">채용</a></li>
+										<li><a href="#">새소식</a></li>
+									</ul>
+									<ul class="sub_menu sub_2_flex">
+										<li><a href="#section2">역사</a></li>
+										<li><a href="#">생산</a></li>
+										<li><a href="#">소재</a></li>
+										<li><a href="#">뉴스</a></li>
+										<li><a href="#">미디어</a></li>
+										<li><a href="#">채용</a></li>
+										<li><a href="#">새소식</a></li>
+									</ul>
+								</li>
+								<li data-menuanchor="4thpage">
+									<a href="#" class="fb fb3">
+										<span class="fbb fbb3 button_able">서비스</span>
+										<span class="fbr fbr3"></span>
+										<span class="fbl fbl3"></span>
+										<span class="image gnb_3 g_ani"></span>
+										<span class="fbf fbf3 button_able">서비스</span>
+									</a>
+									<ul class="sub_menu sub_3_l">
+										<li><a href="#4thpage">A/S</a></li>
+										<li><a href="#">F-멤버십 가입</a></li>
+										<li><a href="#">공장 방문</a></li>
+										<li><a href="#">제품 등록</a></li>
+									</ul>
+									<ul class="sub_menu sub_3_r">
+										<li><a href="#">S.W.A.P</a></li>
+										<li><a href="#">바이크 렌트</a></li>
+										<li><a href="#">시티 가이드라인</a></li>
+									</ul>
+								</li>
+								<li data-menuanchor="firstPage" class="middle_logo">
+									<a href="#firstPage" class="fb fb4">
+										<h1 class="fbb fbb4">프라이탁로고</h1>
+									</a>
+								</li>
+								<li data-menuanchor="lastPage">
+									<a href="#lastPage" class="fb fb5">
+										<span class="fbb fbb5">고객센터</span>
+										<span class="fbr fbr5"></span>
+										<span class="fbl fbl5"></span>
+										<span class="image gnb_5 g_ani"></span>
+										<span class="fbf fbf5">고객센터</span>
+									</a>
+									<ul class="sub_menu sub_5">
+										<li><a href="#">제품 &amp; 소재</a></li>
+										<li><a href="#">쇼핑 &amp; 배송</a></li>
+										<li><a href="#">주문 &amp; 결제</a></li>
+										<li><a href="#">교환 &amp; 환불</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="fb fb6">
+										<span class="fbb fbb6">컨텍트</span>
+										<span class="fbr fbr6"></span>
+										<span class="fbl fbl6"></span>
+										<span class="image gnb_6 g_ani"></span>
+										<span class="fbf fbf6">컨텍트</span>
+									</a>
+									<ul class="sub_menu sub_6">
+											<li><a href="#">고객지원</a></li>
+											<li><a href="#">리셉션</a></li>
+											<li><a href="#">언론</a></li>
+											<li><a href="#">마케팅</a></li>
+											<li><a href="#">가맹·대리·체인</a></li>
+											<li><a href="#">방수포 조달</a></li>
+									</ul>
+									<ul class="sub_menu sub_6_l_flex">
+										<li><a href="#">고객지원</a></li>
+										<li><a href="#">리셉션</a></li>
+										<li><a href="#">언론</a></li>
+									</ul>
+									<ul class="sub_menu sub_6_r_flex">
+										<li><a href="#">마케팅</a></li>
+										<li><a href="#">가맹·대리·체인</a></li>
+										<li><a href="#">방수포 조달</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#" class="fb fb7">
+										<span class="fbb fbb7">스토어</span>
+										<span class="fbr fbr7"></span>
+										<span class="fbl fbl7"></span>
+										<span class="image gnb_7 g_ani"></span>
+										<span class="fbf fbf7">스토어</span>
+									</a>
+								</li>	
+							</ul>
+						</div>
 					</div>
-					<div>
-						<a href="uniqlo/index.html" class="uniqlo logo">
-							<img src="img/uniqlo_logo.jpg" alt="유니클로">
-						</a>
+				</div>
+				<div class="slide bg_img bg_2" id="slide2">
+					<div class="inner">
+						<div class="menu">
+							<ul class="drawer2 drawer_order">
+								<li>
+									<a href="#" class="fb fb1">
+										<span class="fbb fbb1">숄더</span>
+										<span class="fbr fbr1"></span>
+										<span class="fbl fbl1"></span>
+										<span class="image bag_1"></span>
+										<span class="fbf fbf1">숄더</span>	
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb2">
+										<span class="fbb fbb2">토드</span>
+										<span class="fbr fbr2"></span>
+										<span class="fbl fbl2"></span>
+										<span class="image bag_2"></span>
+										<span class="fbf fbf2">토드</span>
+									</a>
+								</li>
+								<li>
+									<a href="bag_1.html" class="fb fb3">
+										<span class="fbb fbb3 button_able">메신저</span>
+										<span class="fbr fbr3"></span>
+										<span class="fbl fbl3"></span>
+										<span class="image bag_3"></span>
+										<span class="fbf fbf3 button_able">메신저</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb4">
+										<span class="fbb fbb4_2">콜라보</span>
+										<span class="fbr fbr4_2"></span>
+										<span class="fbl fbl4_2"></span>
+										<span class="image bag_4"></span>
+										<span class="fbf fbf4_2">콜라보</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb5">
+										<span class="fbb fbb5">백팩</span>
+										<span class="fbr fbr5"></span>
+										<span class="fbl fbl5"></span>
+										<span class="image bag_5"></span>
+										<span class="fbf fbf5">백팩</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb6">
+										<span class="fbb fbb6">스포츠</span>
+										<span class="fbr fbr6"></span>
+										<span class="fbl fbl6"></span>
+										<span class="image bag_6"></span>
+										<span class="fbf fbf6">스포츠</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb7">
+										<span class="fbb fbb7">랩탑</span>
+										<span class="fbr fbr7"></span>
+										<span class="fbl fbl7"></span>
+										<span class="image bag_7"></span>
+										<span class="fbf fbf7">랩탑</span>
+									</a>
+								</li>	
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="slide bg_img bg_3" id="slide3">
+					<div class="inner">
+						<div class="menu">
+							<ul class="drawer3 drawer_order">
+								<li>
+									<a href="acc_1.html" class="fb fb3">
+										<span class="fbb fbb3 fb_top button_able">슬리브</span>
+										<span class="fbr fbr3"></span>
+										<span class="fbl fbl3"></span>
+										<span class="image acc_1"></span>
+										<span class="fbf fbf3 fb_top button_able">슬리브</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb4">
+										<span class="fbb fbb4_3 fb_top">노트</span>
+										<span class="image acc_2"></span>
+										<span class="fbf fbf4_3 fb_top">노트</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb5">
+										<span class="fbb fbb5 fb_top">세면백</span>
+										<span class="fbr fbr5"></span>
+										<span class="fbl fbl5"></span>
+										<span class="image acc_3"></span>
+										<span class="fbf fbf5 fb_top">세면백</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb3">
+										<span class="fbb fbb3">지갑</span>
+										<span class="fbr fbr3"></span>
+										<span class="fbl fbl3"></span>
+										<span class="image acc_4"></span>
+										<span class="fbf fbf3">지갑</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb4">
+										<span class="fbb fbb4_3">파우치</span>
+										<span class="image acc_5"></span>
+										<span class="fbf fbf4_3">파우치</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb5">
+										<span class="fbb fbb5">숄더패드</span>
+										<span class="fbr fbr5"></span>
+										<span class="fbl fbl5"></span>
+										<span class="image acc_6"></span>
+										<span class="fbf fbf5">숄더패드</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb3">
+										<span class="fbb fbb3 fb_bottom">키홀더</span>
+										<span class="fbr fbr3"></span>
+										<span class="fbl fbl3"></span>
+										<span class="image acc_7"></span>
+										<span class="fbf fbf3 fb_bottom">키홀더</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb4">
+										<span class="fbb fbb4_3 fb_bottom">케이스</span>
+										<span class="image acc_8"></span>
+										<span class="fbf fbf4_3 fb_bottom">케이스</span>
+									</a>
+								</li>
+								<li>
+									<a href="#" class="fb fb5">
+										<span class="fbb fbb5 fb_bottom">바우처</span>
+										<span class="fbr fbr5"></span>
+										<span class="fbl fbl5"></span>
+										<span class="image acc_9"></span>
+										<span class="fbf fbf5 fb_bottom">바우처</span>
+									</a>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>		
+			
+			<div class="section apparel clear" id="section1">
+				<div class="sub_inner">
+					<p class="category">어페럴 &raquo; F-소재</p>
+					<img src="img/sub/sub_apparel.png" alt="fullPage" class="header_icon">
+					<h1>미래의 F-소재</h1>
+					<p class="content_text">
+					저희는 사실 직원들에게 적합한 작업복을 찾고 있었지만 우리가 찾고자 하는 것은 세상에 존재하지 않는다는 것을 깨달았습니다.<br>
+					이 신소재는 유럽에서 생산되어 더욱 견고하고 지속 가능하며 퇴비로 사용 가능할 만큼 쉽게 분해되는 재료입니다.<br>
+					그래서 우리는 우리의 원하는 것을 100% 충족시킬 섬유부터 시작하여 우리만의 직물을 개발하기로 결정했습니다.<br>
+					우리는 그것들을 F-소재라고 부릅니다.
+					</p>
+					<div class="apparel_list_wrap swiper-container">
+						<ul class="apparel_list swiper-wrapper">
+							<li class="swiper-slide">
+								<a href="#">
+									<div><img src="img/sub/apparel_0_on.png" alt="모든 여성복"></div>
+									<p>E154 모든 여성복</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#">
+									<div><img src="img/sub/apparel_1_on.png" alt="드레스"></div>
+									<p>E172 드레스</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#">
+									<div><img src="img/sub/apparel_2_on.png" alt="남성 티셔츠"></div>
+									<p>E721 남성 티셔츠</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#">
+									<div><img src="img/sub/apparel_3_on.png" alt="남성 하의"></div>
+									<p>E550 남성 하의</p>
+								</a>
+							</li>
+							<li class="swiper-slide">
+								<a href="#">
+									<div><img src="img/sub/apparel_4_on.png" alt="남성 자켓"></div>
+									<p>E850 남성 자켓</p>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="section history" id="section2">
+				<div class="sub_inner">
+					<div class="contents_inner">
+						<p class="category">프라이탁? &raquo; 프라이탁의 탄생</p>
+						<img src="img/sub/sub_freitag.png" alt="fullPage" class="header_icon">
+						<h1>프라이탁의 탄생</h1>
+						<p class="content_text">
+						부엌에는 재봉틀, 욕조에는 세탁물이 있다. <br>
+						다니엘과 마커스 프라이탁의 전 룸메이트인 올리버 젬펄, <br>
+						젬펄은 여러분에게 어떻게 90년대 초에 프라이탁 이야기가 시작되었는지 말해준다.
+						<br><br>
+						제 룸메이트 두 명 중 한 명은 마커스 프라이탁이라는 사람이었습니다. 나는 그가 도시의 덜 건강에 좋은 산업 지역 중 한 곳에서 돌아왔을 때 어느 흐린 오후에야 그의 계획에 대해 더 많이 알게 되었다. <br>그의 자전거에 부착된 트레일러에는 그가 트럭 운송 회사에서 용케 구한 낡은 방수포가 있었다. 그는 악취가 나고 부피가 거대한 방수포를 계단 위로 들어올렸고, 마지막 한 번의 노력으로 그것을 우리 거실에 쌓았다. <br><br>
+						<span>그리고 마커스는 말했다. <br>"나는 그것으로 돈을 벌거야, 지금은 자전거 타는 사람들을 위한 가방이지만, 후에 다른 사람들에게도 좋은 가방이 될거야."</span>
+						<br><br>프라이탁의 모든 가방은 대형트럭 방수포, 자전저 바퀴의 내부 튜브, 자동차 안전벨트 같은 재활용품으로 만들어졌습니다. 
+						</p>
+					</div>
+					
+					<div class="history_list_wrap swiper-container">
+						<ul class="history_list swiper-wrapper">
+							<li class="swiper-slide">
+								<img src="img/sub/history_1.jpg" alt="초기 작업실">
+								<p>90년대 초 프라이탁 작업장</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_2.jpg" alt="다니엘과 마커스">
+								<p>설립자 다니엘과 마커스 프라이탁</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_3.jpg" alt="프라이탁 초기 패키지">
+								<p>프라이탁 가방의 초기 패키지</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_4.jpg" alt="가방을 봉제하는 프라이탁 형제">
+								<p>가방을 봉제하는 프라이탁 형제</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_5.jpg" alt="다니엘과 마커스">
+								<p>방수포를 수선하는 프라이탁 형제</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_6.jpg" alt="첫 프로토타입">
+								<p>1993년 메신저 가방의 첫 프로토타입</p>
+							</li>
+							<li class="swiper-slide">
+								<img src="img/sub/history_7.jpg" alt="오랜된 프라이탁 메신저">
+								<p>프라이탁의 첫번째 모델 <br>F13 TOP CAT</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="section service " id="section3">
+				<div class="sub_inner clear">
+					<div class="sub_left_inner">
+						<p class="category">서비스 &raquo; A/S</p>
+						<img src="img/sub/sub_service.png" alt="fullPage" class="header_icon">
+						<h1>애프터 서비스</h1>
+						<p class="content_text">
+						저희 제품은 내구성이 뛰어난 트럭 방수포로 만들어 졌지만 <br>평생 같은 컨디션을 유지할 수는 없습니다. 10년이면 강산도 변하는 거처럼, <br>여러분의 튼튼한 F-제품도 언젠가 닳기 마련입니다.
+						<br><br>
+						헌 물건을 버리고 새로 구매하는 것보다 수리하여 사용하는 것을 제안합니다. <br>오래된 흔적은 저희의 제품을 더욱 빈티지하게 만들 뿐 아니라 FREITAG 신념의 <br>일부이기 때문입니다. 여기에서는 교체 부품에서 지역 수리 서비스에 이르기까지 <br>여러분의 방수포와 관련된 모든 긴급 상황에 대한 해결책을 제공합니다.
+						</p>
+						<h3>가방을 보내려면 지역 <span>케어 포인트</span>를 찾거나 문의를 하세요.</h3>
+						<h4>지역을 선택해주세요.</h4>
+						<ul class="care_point_list">
+							<li><a href="#">스위스 &amp; 유럽</a></li>
+							<li><a href="#">호주 / 뉴질랜드</a></li>
+							<li><a href="#">일본</a></li>
+							<li><a href="#">한국</a></li>
+							<li><a href="#">태국</a></li>
+							<li><a href="#">중국</a></li>
+							<li><a href="#">대만</a></li>
+							<li><a href="#">필리핀</a></li>
+							<li><a href="#">그 외</a></li>
+						</ul>
+					</div>
+					<div class="service_process">
+						<div class="sub_right_inner">
+							<h3>저희가 이렇게 수리해드립니다!</h3>
+							<ul class="process_img">
+								<li><img src="img/sub/service_1.jpg"><p>손상된 타프 복구</p></li>
+								<li><img src="img/sub/service_2.jpg"><p>벨크로 지퍼 <br>자전거 튜브 <br>스트랩 및 라벨 교체</p></li>
+								<li><img src="img/sub/service_3.jpg"><p>터진 박음선 재박음질</p></li>
+								<li><img src="img/sub/service_4.jpg"><p>마모된 모서리 수선</p></li>
+								<li><img src="img/sub/service_5.jpg"><p>봉제 버클, 링, 나사<br> 및 단추 교체</p></li>
+								<li class="care_complete"><img src="img/sub/service_6_on.jpg"><p>A/S 완료</p></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<footer class="section footer fp-auto-height" id="section4">
+				<div class="inner">
+					<h2><a href="#firstPage"><img src="img/logo_gray.jpg" alt="프라이탁로고"></a></h2>
+					<div class="info">
+						<ul class="info_01">
+							<li><a href="#">인재채용</a></li>
+							<li><a href="#">협력업체등록</a></li>
+							<li><a href="#">공지사항</a></li>
+							<li><a href="#">고객문의</a></li>
+							<li><a href="#">개인정보취급방침</a></li>
+							<li><a href="#">이용약관</a></li>
+						</ul>
+						<address>
+							<span>대표이사 프라이탁</span>
+							<span>사업자 등록번호 000-00-00000</span>
+							<span>서울특별시 강남구 선릉로153길 11</span>
+							<span>T. 02.000.0000</span>
+							<span>F. 02.000.0000</span>
+						</address>
+						<p>COPYRIGHT&copy; 2021 ㈜프라이탁 코리아 <br>ALL RIGHTS RESERVED.</p>
+					</div>
+					<ul class="sns_logo">
+					<li><a href="https://www.pinterest.ch/freitaglab/"><img src="img/sns_01.png" alt="핀터레스트"></a></li>
+					<li><a href="https://www.instagram.com/freitaglab/"><img src="img/sns_02.png" alt="인스타그램"></a></li>
+					<li><a href="https://www.facebook.com/FREITAG/"><img src="img/sns_03.png" alt="페이스북"></a></li>
+					<li><a href="https://www.youtube.com/channel/UCHyhAHfoZOUw0zRCn1JSAMg"><img src="img/sns_04.png" alt="유튜브"></a></li>
+				</ul>
+				</div>
+			</footer>
+		</div>
+		
+		<article class="layer_popup">
+			<a href="#">
+				<p>RENEWAL OPEN EVENT</p>
+				<p>리뉴얼 기념 응원글 작성시</p>
+				<p>바우처 증정</p>
+				<p>※본 사이트는 상업적 목적이 아닌 개인 포트폴리오 사이트로 제작되었습니다.※</p>
+			</a>
+			<a href="#" class="close_button">닫기</a>
+		</article>
 	</body>
 </html>
